@@ -145,15 +145,13 @@ pizzaIngredients.crusts = [
   "Stuffed Crust"
 ];
 
-
-// Storing lengths of the pizza ingredients array 
 // Create global variables to hold the lengths of the arrays in pizzaIngredients
-// I'm doing this to avoid repeatedly accessing the length property in a loop.
 var pizzaMeats_length = pizzaIngredients.meats.length;
 var pizzaNonMeats_length = pizzaIngredients.nonMeats.length;
 var pizzaCheeses_length = pizzaIngredients.cheeses.length;
 var pizzaSauces_length = pizzaIngredients.sauces.length;
 var pizzaCrusts_length = pizzaIngredients.crusts.length;
+
 
 
 // Name generator pulled from http://saturdaykid.com/usernames/generator.html
@@ -342,7 +340,6 @@ var selectRandomCrust = function() {
   return randomCrust;
 };
 
-// This function creates a list item element and returns it. 
 var ingredientItemizer = function(string) {
   return "<li>" + string + "</li>";
 };
@@ -350,8 +347,9 @@ var ingredientItemizer = function(string) {
 
 
 
-// what i changed here - 
-// bypassed the call to SelectRandom... functions
+//what i changed here - 
+
+// Bypassed the call to the SelectRandom... functions
 // Used the global variables that hold the lengths of the pizzaIngredients arrays
 // Improved time to generate pizzas on load by a few seconds. 
 // Returns a string with random pizza ingredients nested inside <li> tags
@@ -448,9 +446,7 @@ var resizePizzas = function(size) {
 
   // Returns the size difference to change a pizza element from one size to another. Called by changePizzaSlices(size).
   // removed elem input variable since the return value depends only on the size input variable. 
-  // The sizeSwitcher function returns just the percentage value - it does not do any size calculations. 
-
-/*function determineDx (size) {
+  /*function determineDx (size) {
     var oldWidth = elem.offsetWidth;
     var windowWidth = document.querySelector("#randomPizzas").offsetWidth;
     var oldSize = oldWidth / windowWidth; */
@@ -469,10 +465,6 @@ var resizePizzas = function(size) {
           console.log("bug in sizeSwitcher");
       }
     }
-
-// I have removed the following lines that calculate a size call  
-// 
-
 /*
     var newSize = sizeSwitcher(size);
     //var dx = (newSize - oldSize) * windowWidth;
@@ -481,7 +473,6 @@ var resizePizzas = function(size) {
   }
 */
   // Iterates through pizza elements on the page and changes their widths
-  // The percentage size returned by sizeSwitcher is used to alter the width of the pizzaContainers 
   function changePizzaSizes(size) {
     var randomPizzaContainers = document.querySelectorAll(".randomPizzaContainer"); 
     var numRandomPizzaContainers = randomPizzaContainers.length; 
@@ -582,5 +573,5 @@ document.addEventListener('DOMContentLoaded', function() {
     elem.style.top = (Math.floor(i / cols) * s) + 'px';
     document.querySelector("#movingPizzas1").appendChild(elem);
   }
-  updatePositions();
+  //updatePositions();
 });
