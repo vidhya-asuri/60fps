@@ -7,6 +7,12 @@ This project showcases my work optimizing a web site for speed and responsivenes
 
 # My development environment: LAMP
 
+
+#### Where to start: 
+Load the index.html file in the src and dist folders. The index.html files have links to the other pages.
+pizza.html which demonstrates the 60fps scroll and pizza size resizing is the last link.    
+
+
 #### Minifying images
 
 **imageMagick**: I used ImageMagick to compress image files.
