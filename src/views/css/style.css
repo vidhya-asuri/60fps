@@ -30,9 +30,19 @@ form {
 }
 
 .mover {
-  position: fixed;
-  width: 256px;
-  z-index: -1;
+  position: fixed; 
+  /*width: 20px;
+  height: 30px; */
+  will-change: transform;
+  transform: translatez(0);
+  backface-visibility: hidden;
+  /*elem.src = "images/pizza.png";
+  elem.style.left = ((i % 8) * 256) + Math.random() + 'px';
+  */
+}
+
+.pizza-moving{
+  transform: translate(0,20px);
 }
 
 .randomPizzaContainer {
