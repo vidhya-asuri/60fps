@@ -1,4 +1,5 @@
-is project showcases my work optimizing a web site for speed and responsiveness.
+# This project showcases my work optimizing a web site for speed and responsiveness.
+
 # What i learnt from working on this project:
 **Using Google Page Speed Insights**
 
