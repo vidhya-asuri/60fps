@@ -30,10 +30,13 @@ I used code (linked from page speed insights results) to load the javascript fil
 # Changes made to main.js
 
 
-**Changes made on Feb 14, 2016 ** 
+**Changes made on Feb 14, 2016** 
+
 **1.**
+
 removed the use of the calculatePhase function. Instead in the DOMContentLoaded listener, the 'left' style property is set using a much simplified 
 **2.**
+
 replaced 'querySelector...' calls with getElementById or getElementsByClassName
 **3.**
 reduced number of moving pizzas to 24.
