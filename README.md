@@ -41,6 +41,9 @@ I used code (linked from page speed insights results) to load the javascript fil
 **3.** Reduced number of 'phase' value calculations to 5.
 
 
+**4.** Declared the image element to hold moving pizzas outside the loop in which they are attached to their parent element.
+
+
 **Changes made on Feb 14, 2016**
 
 **1.** Removed the use of the calculatePhase function in calculating the movement of the pizza images on scroll. Instead in the DOMContentLoaded listener, the 'left' style property is set using a much simplified function. The transform style property of the moving pizza element is set to translateY(30px).
