@@ -541,10 +541,22 @@ function updatePositions() {
   frame++;
   window.performance.mark("mark_start_frame");
 
+  // The transform property of the moving pizza images is set using the phase array values.
+  // The CalculatePhase function is not used; instead the phase array values are calculated locally
+  // in a loop.
+  // The number of phase values has also been reduced to 5    
+
+  var bodyTop = document.body.scrollTop;  
+  var phase = [];
   var items = document.getElementsByClassName('mover');
   var itemsLength = items.length;
+
+  for (var i = 0; i < 5; i++) {
+    phase[i] =  100 * Math.sin(bodyTop + i % 5);
+  }
+
   for (var i = 0; i < itemsLength; i++) {
-    items[i].style.transform = 'translateY(30px)';
+    items[i].style.transform = 'translateX(' + phase[i % 5] + 'px)';
   }
 
   // User Timing API to the rescue again. Seriously, it's worth learning.
@@ -560,20 +572,27 @@ function updatePositions() {
 // runs updatePositions on scroll
 window.addEventListener('scroll', updatePositions);
 
-var numMovingPizzas = 24; 
+var numMovingPizzas = 24;
+ 
 // Generates the sliding pizzas when the page loads.
+
+// The elem variable is being declared outside the loop and updated with a new value inside the loop. 
+// Moved the call to get the movingPizzas1 DOM element outside the loop.
+ 
 document.addEventListener('DOMContentLoaded', function() {
   var cols = 8;
   var s = 256;
+  var elem;
+  var movingPizza = document.getElementById("movingPizzas1");
   for (var i = 0; i < numMovingPizzas; i++) {
-    var elem = document.createElement('img');
+    elem = document.createElement('img');
     elem.className = 'mover';
     elem.src = "images/pizza.png";
     elem.style.height = "100px";
     elem.style.width = "73.333px";
-    elem.style.left = (i % cols) * s + 100*Math.sin(Math.random()) + 'px';
+    elem.style.left = (i % cols) * s + 'px';
     elem.style.top = (Math.floor(i / cols) * s) + 'px';
-    document.getElementById("movingPizzas1").appendChild(elem);
+    movingPizza.appendChild(elem);
   }
-  //updatePositions();
+  updatePositions();
 });

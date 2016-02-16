@@ -29,7 +29,19 @@ I used code (linked from page speed insights results) to load the javascript fil
 
 # Changes made to main.js
 
-**Changes made on Feb 14, 2016 - These are the most recent changes**
+**Changes made on Feb 15, 2016 - These are the most recent changes**
+
+
+**1.** The transform style property of the moving pizza element is set to use translateX() in updatePositions. 
+
+
+**2.** Restored call to updatePositions in the DOMContentLoaded listener.
+
+
+**3.** Reduced number of 'phase' value calculations to 5.
+
+
+**Changes made on Feb 14, 2016**
 
 **1.** Removed the use of the calculatePhase function in calculating the movement of the pizza images on scroll. Instead in the DOMContentLoaded listener, the 'left' style property is set using a much simplified function. The transform style property of the moving pizza element is set to translateY(30px).
 
